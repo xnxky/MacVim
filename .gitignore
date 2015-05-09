@@ -1,0 +1,7 @@
+backup/
+tempDir/
+runtime/
+vimfiles/bundle/command-t/
+*.pyc
+ctags
+

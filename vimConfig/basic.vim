@@ -55,7 +55,13 @@ set directory=$VIM/tempDir     " Where temporary files will go.
 " Add recently accessed projects menu (project plugin)
 set viminfo='100,f1
 
-colorscheme murphy
+syntax enable
+if has('gui_running')
+    set background=dark
+else
+    set background=light
+endif
+colorscheme solarized
 
 ""************************************************************************************'
 "self defined mapping

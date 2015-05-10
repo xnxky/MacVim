@@ -4,7 +4,7 @@
 "
 " License:
 "
-" Copyright (C) 2005 - 2013  Eric Van Dewoestine
+" Copyright (C) 2005 - 2014  Eric Van Dewoestine
 "
 " This program is free software: you can redistribute it and/or modify
 " it under the terms of the GNU General Public License as published by
@@ -38,6 +38,7 @@ let g:HtmlDjangoBodyElements = [
     \ ['autoescape', 'endautoescape'],
     \ ['block', 'endblock'],
     \ ['blocktrans', 'plural', 'endblocktrans'],
+    \ ['cache', 'endcache'],
     \ ['comment', 'endcomment'],
     \ ['filter', 'endfilter'],
     \ ['for', 'empty', 'endfor'],
@@ -61,7 +62,7 @@ if exists("b:match_words")
       endif
       let pattern .= '{%\s*\<' . tag . '\>.\{-}%}'
     endfor
-    let pattern .= ':{%\s*\<' . element[-1:][0] . '\>\s*%}'
+    let pattern .= ':{%\s*\<' . element[-1:][0] . '\>.\{-}%}'
     let b:match_words .= ',' . pattern
   endfor
 endif
@@ -81,7 +82,9 @@ endif
 " Command Declarations {{{
 
 if !exists(':DjangoFind')
-  command -buffer DjangoFind :call eclim#python#django#find#TemplateFind()
+  command -buffer -nargs=*
+    \ -complete=customlist,eclim#python#django#find#CommandCompleteAction
+    \ DjangoFind :call eclim#python#django#find#TemplateFind('<args>')
 endif
 
 " }}}

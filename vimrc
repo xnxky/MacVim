@@ -3,7 +3,6 @@
 " Maintainer:	Bjorn Winckler <bjorn.winckler@gmail.com>
 " Last Change:	Sat Aug 29 2009
 
-set guifont=Monaco:h20
 
 ""************************************************************************
 "this is to source all the customized settings files

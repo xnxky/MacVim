@@ -23,9 +23,9 @@ set cindent
 set autoindent
 set smarttab
 set expandtab
-set tabstop=4
-set shiftwidth=4 
-set softtabstop=4
+set tabstop=2
+set shiftwidth=2 
+set softtabstop=2
 " Visual
 set showmatch  " Show matching brackets.
 set mat=5  " Bracket blinking.

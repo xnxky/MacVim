@@ -1,6 +1,6 @@
 "this is for buffer surf
-nnoremap <silent> <c-i> :bprevious<CR>
-nnoremap <silent> <c-o> :bnext<CR>
+nnoremap <silent> <c-i> :BufSurfBack<CR>
+nnoremap <silent> <c-o> :BufSurfForward<CR>
 
 
 " MiniBufExpl Colors

@@ -37,4 +37,7 @@ execute 'source '.vimConfigDir.'/indent.vim'
 execute 'source '.vimConfigDir.'/ctrlp.vim'
 execute 'source '.vimConfigDir.'/ConqueTerm.vim'
 execute 'source '.vimConfigDir.'/unite.vim'
+execute 'source '.vimConfigDir.'/cscope.vim'
+"set autochdir
+set autochdir
 "*************************************************************************

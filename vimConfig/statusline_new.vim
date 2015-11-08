@@ -39,7 +39,7 @@ nmap <leader>9 <Plug>AirlineSelectTab9
 "Without suffix
 let g:airline#extensions#tabline#fnamemod = ':r'
 let g:airline#extensions#tabline#show_tabs = 0
-let g:airline#extensions#tabline#excludes = ['tags']
+let g:airline#extensions#tabline#excludes = ['tags', 'bash']
 let g:airline#extensions#tabline#show_close_button = 0
-let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+let g:airline#extensions#tabline#formatter = 'unique_tail'
 

@@ -99,3 +99,17 @@ nnoremap <esc> :noh<CR><esc>
 set undofile
 set undodir=$VIM/tempDir
 set undolevels=999 "maximum number of changes that can be undone
+
+au BufWinEnter,BufNewFile * silent tab
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
+set encoding=utf-8
+set diffopt+=iwhite
+let g:fugitive_github_domains = ['github.com', 'git.airbnb.com']
+
+"remove the crontab conflict
+autocmd filetype crontab setlocal nobackup nowritebackup

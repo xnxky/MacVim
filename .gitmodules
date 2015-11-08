@@ -55,3 +55,6 @@
 [submodule "vimfiles/bundle/vim-l9"]
 	path = vimfiles/bundle/vim-l9
 	url = https://github.com/eparreno/vim-l9
+[submodule "vimfiles/bundle/vim-buffergator"]
+	path = vimfiles/bundle/vim-buffergator
+	url = https://github.com/jeetsukumaran/vim-buffergator.git

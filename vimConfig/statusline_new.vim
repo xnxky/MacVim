@@ -1,7 +1,7 @@
 set guifont=Literation\ Mono\ Powerline:h20
 let g:airline_powerline_fonts = 1
 "setting according to C:\vim\vimfiles\bundle\vim-airline\plugin\airline.vim
-let g:airline_theme = 'dark'
+let g:airline_theme = 'light'
 
 function! AccentDemo()
   let keys = ['a','b','c','e','f','g']
@@ -10,7 +10,7 @@ function! AccentDemo()
   endfor
   call airline#parts#define_accent('a', 'red')
   call airline#parts#define_accent('b', 'green')
-  call airline#parts#define_accent('c', 'blue')
+  call airline#parts#define_accent('c', 'yellow')
   call airline#parts#define_accent('d', 'yellow')
   call airline#parts#define_accent('e', 'orange')
   call airline#parts#define_accent('f', 'purple')
@@ -18,7 +18,7 @@ function! AccentDemo()
   let g:airline_section_z = airline#section#create(keys)
 endfunction
 
-autocmd VimEnter * call AccentDemo()
+call AccentDemo()
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_idx_mode = 1
@@ -48,4 +48,3 @@ let g:airline_section_c = ''
 "g:airline_section_x shows the fucntion name
 "row and column number
 let g:airline_section_y = '%3l/%L %4v    0x%04B'
-let g:airline_section_z = ''

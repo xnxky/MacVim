@@ -3,7 +3,7 @@ let mapleader = ','
 
 set diffopt=filler,context:0
 set cf  " Enable error files & error jumping.
-set clipboard=unnamed
+set clipboard=unnamedplus
 set history=256  " Number of things to remember in history.
 set autowrite  " Writes on make/shell commands
 set ruler  " Ruler on
@@ -22,9 +22,9 @@ set cindent
 set autoindent
 set smarttab
 set expandtab
-set tabstop=2
-set shiftwidth=2 
-set softtabstop=2
+set tabstop=4
+set shiftwidth=4 
+set softtabstop=4
 " Visual
 set showmatch  " Show matching brackets.
 set mat=5  " Bracket blinking.
@@ -59,6 +59,8 @@ else
     set background=light
 endif
 colorscheme solarized
+
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 ""************************************************************************************'
 "self defined mapping
@@ -96,26 +98,20 @@ nnoremap <esc> :noh<CR><esc>
 
 "persistent undo
 set undofile
-set undodir=$VIM/tempDir
+set undodir=$HOME/Tools/vim/tempDir
 set undolevels=999 "maximum number of changes that can be undone
 
-au BufWinEnter,BufNewFile * silent tab
-highlight ExtraWhitespace ctermbg=red guibg=red
-match ExtraWhitespace /\s\+$/
-autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
-autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-autocmd InsertLeave * match ExtraWhitespace /\s\+$/
-autocmd BufWinLeave * call clearmatches()
-set encoding=utf-8
-set diffopt+=iwhite
-let g:fugitive_github_domains = ['github.com', 'git.airbnb.com']
+set cursorline
+set cursorcolumn
+highlight cursorline ctermbg=3
 
-"remove the crontab conflict
-autocmd filetype crontab setlocal nobackup nowritebackup
-autocmd BufNewFile,BufRead *.json set ft=javascript
+autocmd VimEnter * highlight cursorline ctermbg=3 guibg=lightblue
+autocmd VimEnter * highlight cursorcolumn ctermbg=3 guibg=lightblue
 
-"see https://github.com/elzr/vim-json/issues/23#issuecomment-40293049
-"about indentLine issue on json concealing
+:nnoremap <leader>cr :set cursorline!<CR>
+:nnoremap <leader>cc :set cursorcolumn!<CR>
+:nnoremap <leader>c :set cursorline! cursorcolumn!<CR>
+
 let g:indentLine_noConcealCursor=""
 
 "https://stackoverflow.com/questions/6488683/how-do-i-change-the-vim-cursor-in-insert-normal-mode
@@ -132,3 +128,10 @@ endif
 :autocmd InsertEnter * set cul
 :autocmd InsertLeave * set nocul
 "or :autocmd InsertEnter,InsertLeave * set cul!
+autocmd BufNewFile,BufRead *.json set ft=javascript
+
+let g:indentLine_noConcealCursor=""
+
+"golang
+"format with goimports instead of gofmt
+let g:go_fmt_command = "goimports""
